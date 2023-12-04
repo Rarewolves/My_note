@@ -9,6 +9,7 @@ import 'package:flutter_application_25/utils/color_constant/color_constant.dart'
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:insta_image_viewer/insta_image_viewer.dart';
+import 'package:share/share.dart';
 
 class Gridview extends StatefulWidget {
   Gridview({
@@ -57,40 +58,26 @@ class _GridviewState extends State<Gridview> {
                   items: [
                     DropdownMenuItem(
                         child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Icon(
-                                Icons.share,
-                                color: Colorconstant.indicatorcolor,
-                              ),
-                              Text("share"),
-                            ],
-                          ),
-                          DropdownMenuItem(
-                              child: InkWell(
-                            onTap: () {
-                              imbox.deleteAt(index);
-                              setState(() {
-                                widget.mylist.removeAt(index);
-                              });
-                              Navigator.pop(context);
-                            },
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Icon(
-                                  Icons.delete,
-                                  color: Colorconstant.indicatorcolor,
-                                ),
-                                Text("delete"),
-                              ],
+                      child: DropdownMenuItem(
+                          child: InkWell(
+                        onTap: () {
+                          imbox.deleteAt(index);
+                          setState(() {
+                            widget.mylist.removeAt(index);
+                          });
+                          Navigator.pop(context);
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Icon(
+                              Icons.delete,
+                              color: Colorconstant.indicatorcolor,
                             ),
-                          ))
-                        ],
-                      ),
+                            Text("delete"),
+                          ],
+                        ),
+                      )),
                     )),
                   ],
                 ),

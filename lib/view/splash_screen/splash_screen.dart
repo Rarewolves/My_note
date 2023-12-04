@@ -14,7 +14,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Timer(Duration(seconds: 4), () {
+    Timer(Duration(seconds: 5), () {
       Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(
@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Lottie.asset("assets/icons/Animation - 1701374095092.json"),
+        child: Lottie.asset("assets/icons/Animation - 1701590058742.json"),
       ),
     );
   }

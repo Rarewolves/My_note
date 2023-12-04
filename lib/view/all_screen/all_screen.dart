@@ -52,7 +52,10 @@ class _AllScreenState extends State<AllScreen> {
                 Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ViewCard(),
+                      builder: (context) => ViewCard(
+                        Index: index,
+                        cardlist: modellist,
+                      ),
                     ));
               },
               child: Container(
@@ -61,7 +64,7 @@ class _AllScreenState extends State<AllScreen> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
                   elevation: 20,
-                  color: Color(note?.color ?? 0xFFFFFF),
+                  color: Color(note?.color ?? 0xFFFFFFFF),
                   child: Padding(
                     padding: const EdgeInsets.all(25),
                     child: Column(
