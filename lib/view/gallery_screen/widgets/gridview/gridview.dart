@@ -9,7 +9,6 @@ import 'package:flutter_application_25/utils/color_constant/color_constant.dart'
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:insta_image_viewer/insta_image_viewer.dart';
-import 'package:share/share.dart';
 
 class Gridview extends StatefulWidget {
   Gridview({

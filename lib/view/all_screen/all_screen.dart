@@ -49,14 +49,16 @@ class _AllScreenState extends State<AllScreen> {
             padding: const EdgeInsets.all(20),
             child: InkWell(
               onTap: () {
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ViewCard(
-                        Index: index,
-                        cardlist: modellist,
-                      ),
-                    ));
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ViewCard(
+                      Index: index,
+                      cardlist: modellist,
+                    ),
+                  ),
+                  (route) => false,
+                );
               },
               child: Container(
                 padding: EdgeInsets.all(2),
@@ -154,6 +156,8 @@ class _AllScreenState extends State<AllScreen> {
                                         builder: (context) => BottomsheetScreen(
                                               editdes: editdes,
                                               edittitle: edittit,
+                                              editdate: editdate,
+                                              edittime: edittime,
                                               editlist: modellist,
                                               editindex: editIndex,
                                               onItemedited: (updatedNote) {
