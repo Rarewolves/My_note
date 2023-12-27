@@ -23,82 +23,69 @@ class _ViewCardState extends State<ViewCard> {
   Widget build(
     BuildContext context,
   ) {
-    return Scaffold(
-      backgroundColor:
-          Color(box.get(widget.cardlist[widget.Index])?.color ?? 0xFFFFFFFF),
-      appBar: AppBar(
-        backgroundColor: Colorconstant.Agrey,
-        elevation: 0,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (
-                    context,
-                  ) =>
-                      HomeScreen(),
-                ));
-          },
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colorconstant.primaryblack,
-            size: 28,
-          ),
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(15),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                box.get(widget.cardlist[widget.Index])?.title ?? "",
-                style: TextStyle(
-                    fontSize: 18,
-                    color: Colorconstant.primaryblack,
-                    fontWeight: FontWeight.w600),
-                textAlign: TextAlign.justify,
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Text(
-                box.get(widget.cardlist[widget.Index])?.description ?? "",
-                style: TextStyle(
-                  fontSize: 15,
-                  color: Colorconstant.primaryblack,
-                ),
-                textAlign: TextAlign.justify,
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Container(
+      color: Color(box.get(widget.cardlist[widget.Index])?.color ?? 0xFFFFFFFF),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    box.get(widget.cardlist[widget.Index])?.date ?? "",
-                    style: TextStyle(
-                        fontSize: 15,
-                        color: Colorconstant.primaryblack,
-                        fontWeight: FontWeight.w600),
-                    textAlign: TextAlign.justify,
+                  Row(
+                    children: [
+                      Text(
+                        box.get(widget.cardlist[widget.Index])?.title ?? "",
+                        style: TextStyle(
+                            fontSize: 18,
+                            color: Colorconstant.primaryblack,
+                            fontWeight: FontWeight.w600),
+                        textAlign: TextAlign.justify,
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 30,
                   ),
                   Text(
-                    box.get(widget.cardlist[widget.Index])?.picktime ?? "",
+                    box.get(widget.cardlist[widget.Index])?.description ?? "",
                     style: TextStyle(
-                        fontSize: 15,
-                        color: Colorconstant.primaryblack,
-                        fontWeight: FontWeight.w600),
+                      fontSize: 15,
+                      color: Colorconstant.primaryblack,
+                    ),
                     textAlign: TextAlign.justify,
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        box.get(widget.cardlist[widget.Index])?.date ?? "",
+                        style: TextStyle(
+                            fontSize: 15,
+                            color: Colorconstant.primaryblack,
+                            fontWeight: FontWeight.w600),
+                        textAlign: TextAlign.justify,
+                      ),
+                      Text(
+                        box.get(widget.cardlist[widget.Index])?.picktime ?? "",
+                        style: TextStyle(
+                            fontSize: 15,
+                            color: Colorconstant.primaryblack,
+                            fontWeight: FontWeight.w600),
+                        textAlign: TextAlign.justify,
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

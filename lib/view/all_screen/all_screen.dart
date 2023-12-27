@@ -48,16 +48,16 @@ class _AllScreenState extends State<AllScreen> {
           return Padding(
             padding: const EdgeInsets.all(20),
             child: InkWell(
+              borderRadius: BorderRadius.circular(25),
               onTap: () {
-                Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ViewCard(
-                      Index: index,
-                      cardlist: modellist,
-                    ),
-                  ),
-                  (route) => false,
+                showModalBottomSheet(
+                  shape:
+                      RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+                  isScrollControlled: true,
+                  context: context,
+                  builder: (context) {
+                    return ViewCard(cardlist: modellist, Index: index);
+                  },
                 );
               },
               child: Container(
