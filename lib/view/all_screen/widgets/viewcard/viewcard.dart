@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_25/model/note_model.dart';
 import 'package:flutter_application_25/utils/color_constant/color_constant.dart';
 
-import 'package:flutter_application_25/view/home_screen/home_screen.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class ViewCard extends StatefulWidget {
@@ -30,11 +29,13 @@ class _ViewCardState extends State<ViewCard> {
         children: [
           SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.all(15),
+              padding: const EdgeInsets.only(
+                  top: 80, left: 15, right: 15, bottom: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         box.get(widget.cardlist[widget.Index])?.title ?? "",
@@ -44,6 +45,17 @@ class _ViewCardState extends State<ViewCard> {
                             fontWeight: FontWeight.w600),
                         textAlign: TextAlign.justify,
                       ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                          setState(() {});
+                        },
+                        child: Image.asset(
+                          "assets/icons/close.png",
+                          color: Colorconstant.indicatorcolor,
+                          scale: 25,
+                        ),
+                      )
                     ],
                   ),
                   SizedBox(
